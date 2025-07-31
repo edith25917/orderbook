@@ -1,0 +1,89 @@
+@import '@/styles/variables';
+
+.quote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    position: relative;
+    font-weight: 900;
+
+    &:hover {
+        background-color: var(--hover-bg);
+    }
+
+    .quotePrice {
+        flex: 1;
+        text-align: start;
+
+        &.quotePriceSell {
+            color: var(--price-down)
+        }
+
+        &.quotePriceBuy {
+            color: var(--price-up)
+        }
+    }
+
+
+    .quoteSize {
+        flex: 1;
+        text-align: end;
+    }
+
+    .quoteTotal {
+        flex: 1;
+        text-align: end;
+    }
+
+    .quoteBar {
+        position: absolute;
+        top: 0;
+        inset-inline-end: 0;
+        bottom: 0;
+        height: 100%;
+        z-index: 0;
+
+        &.quoteBarBuy {
+            background-color: var(--bar-buy);
+        }
+
+        &.quoteBarSell {
+            background-color: var(--bar-sell);
+        }
+    }
+}
+
+.highlight {
+    position: relative;
+    z-index: 0;
+
+    &.highlightFlash::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    &.highlightUp.highlightFlash::after {
+        background-color: var(--flash-green);
+        animation: flashOut 0.6s ease-out forwards;
+    }
+
+    &.highlightDown.highlightFlash::after {
+        background-color: var(--flash-red);
+        animation: flashOut 0.6s ease-out forwards;
+    }
+}
+
+@keyframes flashOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

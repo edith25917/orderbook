@@ -1,0 +1,73 @@
+@import '@/styles/variables';
+
+.orderBook {
+    background-color: var(--bg-color);
+    color: var(--text-default);
+    font-family: sans-serif;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    color: var(--text-header);
+    font-size: 0.9rem;
+
+    .headerItem {
+        flex: 1
+    }
+
+    .headerItemEnd {
+        text-align: end;
+    }
+}
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.lastPrice {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+
+    &.up {
+        color: var(--price-up);
+        background-color: var(--bg-up);
+    }
+
+    &.down {
+        color: var(--price-down);
+        background-color: var(--bg-down);
+    }
+
+    &.same {
+        color: var(--price-same);
+        background-color: var(--bg-same);
+    }
+
+    .lastPriceIcon {
+        display: flex;
+        align-items: center;
+    }
+
+    .lastPriceIconUp {
+        transform: rotate(180deg);
+    }
+
+    .lastPriceIconHide {
+        display: none;
+    }
+}
